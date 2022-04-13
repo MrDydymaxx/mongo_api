@@ -42,7 +42,7 @@ module.exports = class Server {
 // Middleware
 
 middleware() {
-	this.app.use(bodyParser.urlencoded({entended: true}));
+	this.app.use(bodyParser.urlencoded({extended: true}));
 	this.app.use(bodyParser.json());
 }
 
@@ -50,6 +50,7 @@ middleware() {
 
 routes() {
 	new routes.Users(this.app, this.connect);
+
 	this.app.use((req, res) => {
 		res.status(404).json({
 			code: 404,
@@ -59,7 +60,6 @@ routes() {
 }
 
 // Run
-
 	run() {
 		try {
 			this.connect = this.dbConnect();

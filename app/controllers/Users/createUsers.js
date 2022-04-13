@@ -1,11 +1,11 @@
-const UserModel = require('../models/user.js');
+const UserModel = require('../../models/user.js');
 
 module.exports = class Users {
 	constructor(app, connect) {
-	this.app = app;
-	this.UserModel = connect.model('User', UserModel);
+		this.app = app;
+		this.UserModel = connect.model('User', UserModel);
 
-	this.run();
+		this.run();
 	}
 
 	run() {
@@ -15,12 +15,11 @@ module.exports = class Users {
 
 				userModel.save().then((user) => {
 					res.status(200).json(user || {});
-				}).catch(() => {
-					res.status(200).json({});
+				}).catch((err) => {
+					res.status(400).json({
+						message: err,
+					});
 				})
-				res.status(200).json({
-					message: 'create user !'
-				});
 			} catch (err) {
 				console.error(`[ERROR] post:users -> ${err}`);
 

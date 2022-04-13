@@ -4,7 +4,7 @@ module.exports = {
             port: 3000
         },
         mongodb:  {
-            host:'mongodb://localhost:2717/tp'
+            host:'mongodb://localhost:27017/tp'
         }
     },
     prod: {
@@ -12,7 +12,7 @@ module.exports = {
             port: 3000
         },
         mongodb:  {
-            host:'mongodb://localhost:2717/tp'
+            host:'mongodb://localhost:27017/tp'
         }
     }
 }

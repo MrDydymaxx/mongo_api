@@ -9,7 +9,7 @@ const User = class User {
   }
 
   showUser() {
-    this.app.get('/user/:id', (req, res) => {
+    this.app.get('/users/:id', (req, res) => {
       try {
         if (!req.params.id) {
           res.status(400).json({
@@ -40,7 +40,7 @@ const User = class User {
   }
 
   deleteUser() {
-    this.app.delete('/user/:id', (req, res) => {
+    this.app.delete('/users/:id', (req, res) => {
       try {
         if (!req.params.id) {
           res.status(400).json({
@@ -70,7 +70,7 @@ const User = class User {
     })
   }
   updateUser() {
-    this.app.put('/user/:id', (req, res) => {
+    this.app.put('/users/:id', (req, res) => {
       try {
         if (!req.params.id) {
           res.status(400).json({
@@ -106,7 +106,7 @@ const User = class User {
     });
   }
   createUser() {
-    this.app.post('/user/', (req, res) => {
+    this.app.post('/users/', (req, res) => {
       try {
         const userModel = new this.UserModel(req.body)
 
